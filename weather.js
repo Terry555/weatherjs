@@ -8,18 +8,15 @@ class Weather {
 
   // Fetch weather from API
    async getWeather(){
-    // const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=${this.apiKey}`);
-    const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=boston&id=524901&APPID=${this.apiKey}`);
-
+    const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${this.city}&id=524901&APPID=${this.apiKey}`);
 
     const responseData = await response.json();
 
-    return response;
+    return responseData;
   }
 
   // Change weather location
-  changeLocation(city, state){
+  changeLocation(city){
     this.city = city;
-    this.state = state;
   }
 }
